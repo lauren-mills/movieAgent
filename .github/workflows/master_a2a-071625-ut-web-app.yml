@@ -3,7 +3,7 @@ name: Build and Deploy Movie Agent to Azure
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-deploy:
