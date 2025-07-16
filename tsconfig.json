@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "ES2022",
     "module": "NodeNext",
-    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
     "outDir": "dist",
-    "esModuleInterop": true, // Often helpful with NodeNext
-    "resolveJsonModule": true // Good practice for importing JSON if needed
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }
