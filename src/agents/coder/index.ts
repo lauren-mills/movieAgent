@@ -34,12 +34,12 @@ class CoderAgentExecutor implements AgentExecutor {
   private cancelledTasks = new Set<string>();
 
   public cancelTask = async (
-        taskId: string,
-        eventBus: ExecutionEventBus,
-    ): Promise<void> => {
-        this.cancelledTasks.add(taskId);
-        // The execute loop is responsible for publishing the final state
-    };
+    taskId: string,
+    eventBus: ExecutionEventBus,
+  ): Promise<void> => {
+    this.cancelledTasks.add(taskId);
+    // The execute loop is responsible for publishing the final state
+  };
 
   async execute(
     requestContext: RequestContext,
@@ -348,6 +348,8 @@ async function main() {
 
   // 4. Create and setup A2AExpressApp
   const appBuilder = new A2AExpressApp(requestHandler);
+  // ignore the deprecation warning for now
+  // @ts-ignore
   const expressApp = appBuilder.setupRoutes(express(), '');
 
   // 5. Start the server
