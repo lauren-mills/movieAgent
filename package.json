@@ -9,7 +9,7 @@
     "typescript": "^5.8.2"
   },
   "scripts": {
-    "start": "node dist/agents/movie-agent/index.js",
+    "start": "npx tsx src/agents/movie-agent/index.ts",
     "build": "tsc",
     "a2a:cli": "npx tsx src/cli.ts",
     "agents:movie-agent": "npx tsx src/agents/movie-agent/index.ts",

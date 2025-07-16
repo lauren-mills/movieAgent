@@ -17,14 +17,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install dependencies
-        run: pnpm install
-
-      - name: Build the project
-        run: pnpm build
+        run: npm install
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
