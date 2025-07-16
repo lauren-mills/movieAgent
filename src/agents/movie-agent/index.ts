@@ -312,8 +312,8 @@ async function main() {
   // @ts-ignore
   const expressApp = appBuilder.setupRoutes(express());
 
-  // 5. Start the server
-  const PORT = process.env.PORT || 41241;
+  // 5. Start the server 41241
+  const PORT = process.env.PORT || 8080;
   expressApp.listen(PORT, () => {
     console.log(`[MovieAgent] Server using new framework started on http://localhost:${PORT}`);
     console.log(`[MovieAgent] Agent Card: http://localhost:${PORT}/.well-known/agent.json`);
