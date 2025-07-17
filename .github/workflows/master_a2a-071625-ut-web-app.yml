@@ -17,11 +17,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install tsx globally
-        run: npm install tsx -g
-
-      - name: Install typescript
-        run: npm install typescript -g
+      - name: Build project
+        run: npm run build
 
       - name: Install dependencies
         run: npm install
@@ -31,4 +28,4 @@ jobs:
         with:
           app-name: a2a-071625-ut-web-app
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: .
+          package: ./dist
