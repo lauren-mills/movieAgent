@@ -23,6 +23,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Copy movie_agent.prompt to dist
+        run: |
+          mkdir -p dist/agents/movie-agent
+          cp src/agents/movie-agent/movie_agent.prompt dist/agents/movie-agent/
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
