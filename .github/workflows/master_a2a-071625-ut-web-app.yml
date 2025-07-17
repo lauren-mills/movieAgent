@@ -16,9 +16,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-          
+
       - name: Install tsx globally
-        run: npm install -g tsx
+        run: npm install tsx -g
+
+      - name: Install typescript
+        run: npm install typescript -g
 
       - name: Install dependencies
         run: npm install
