@@ -1,5 +1,6 @@
 import express from "express";
 import { v4 as uuidv4 } from 'uuid'; // For generating unique IDs
+import cors from "cors";
 
 import {
   AgentCard,
@@ -311,6 +312,14 @@ async function main() {
   // ignore the deprecation warning for now
   // @ts-ignore
   const expressApp = appBuilder.setupRoutes(express());
+
+  expressApp.use(cors({
+    origin: "*",              // allow any origin
+    methods: ["GET", "POST"],  // adjust if you need PUT, DELETE, etc.
+    allowedHeaders: ["Content-Type", "Authorization"]  // add more if needed
+  }));
+
+  expressApp.options("*", cors());
 
   // 5. Start the server 41241
   const PORT = process.env.PORT || 41241;
