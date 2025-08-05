@@ -1,5 +1,6 @@
 import express from "express";
 import { v4 as uuidv4 } from 'uuid'; // For generating unique IDs
+import cors from "cors";
 import { InMemoryTaskStore, A2AExpressApp, DefaultRequestHandler, } from "@a2a-js/sdk/server";
 import { ai } from "./genkit.js";
 import { searchMovies, searchPeople } from "./tools.js";
@@ -239,12 +240,20 @@ async function main() {
     const requestHandler = new DefaultRequestHandler(movieAgentCard, taskStore, agentExecutor);
     // 4. Create and setup A2AExpressApp
     const appBuilder = new A2AExpressApp(requestHandler);
+    const expressApp = express();
+    // Enable CORS for all routes and origins before registering routes
+    expressApp.use(cors({
+        origin: "*", // allow any origin
+        methods: ["GET", "POST"], // adjust if you need PUT, DELETE, etc.
+        allowedHeaders: ["Content-Type", "Authorization"] // add more if needed
+    }));
+    expressApp.options("*", cors());
     // ignore the deprecation warning for now
     // @ts-ignore
-    const expressApp = appBuilder.setupRoutes(express());
+    appBuilder.setupRoutes(expressApp);
     // 5. Start the server 41241
-    const PORT = process.env.PORT || 41241;
-    expressApp.listen(PORT, () => {
+    const PORT = Number(process.env.PORT) || 41241;
+    expressApp.listen(PORT, "0.0.0.0", () => {
         console.log(`[MovieAgent] Server using new framework started on http://localhost:${PORT}`);
         console.log(`[MovieAgent] Agent Card: http://localhost:${PORT}/.well-known/agent.json`);
         console.log('[MovieAgent] Press Ctrl+C to stop the server');
