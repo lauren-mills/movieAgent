@@ -1,4 +1,4 @@
-# JavaScript Samples
+# Movie Agent
 
 The provided samples are built using [Genkit](https://genkit.dev/) using the Gemini API.
 
