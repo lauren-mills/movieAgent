@@ -1,4 +1,4 @@
-name: Build and Deploy Movie Agent to Azure
+name: Build and Deploy to Azure
 
 on:
   push:
@@ -46,3 +46,4 @@ jobs:
           app-name: a2a-test
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
+
