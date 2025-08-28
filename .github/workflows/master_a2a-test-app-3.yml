@@ -29,6 +29,11 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
+      - name: Copy movie_agent.prompt to dist
+        run: |
+          mkdir -p dist/agents/movie-agent
+          cp src/agents/movie-agent/movie_agent.prompt dist/agents/movie-agent/
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -62,4 +67,5 @@ jobs:
           app-name: 'a2a-test-app-3'
           slot-name: 'Production'
           package: .
+
           
