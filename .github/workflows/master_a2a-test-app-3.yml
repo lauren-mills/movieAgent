@@ -28,7 +28,7 @@ jobs:
           mkdir -p dist/agents/movie-agent
           cp src/agents/movie-agent/movie_agent.prompt dist/agents/movie-agent/
 
-       - name: Login to Azure
+      - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
@@ -42,3 +42,4 @@ jobs:
           app-name: 'a2a-test-app-3'
           slot-name: 'Production'
           package: .
+
