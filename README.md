@@ -1,5 +1,7 @@
 # Movie Agent
 
+Wiki: https://msazure.visualstudio.com/CCI/_wiki/wikis/CCI.wiki/807067/Invoke-the-A2A-protocol-with-a-Custom-Connector?anchor=%E2%9C%85-setup-and-deploy-movieagent-to-azure-%E2%80%94-full-instructions
+
 The provided samples are built using [Genkit](https://genkit.dev/) using the Gemini API.
 
 ## Agents
